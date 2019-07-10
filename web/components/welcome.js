@@ -53,18 +53,14 @@ const app = new Vue({
       {id:1,name:'mail-books'},
       {id:2,name:'mail-shoes'},
       {id:3,name:'mail-cars'}
-    ]
+    ],
+    mssage : 'afdasfdas'
   }
   } ,
   methods: {
     go_to_href: function (href) {
       window.location.href = href
     }
-  },
-
-  mounted: function() {
-
-
   }
 })
 

@@ -6,7 +6,7 @@ function say_hello_js(x) {
 
 say_hello_js("Javascript World!");
 
-eel.sum_test(3,4)()
+eel.sum_test(5,4)()
   .then( (response)  => {
     console.log(response);
   })
