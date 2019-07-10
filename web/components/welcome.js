@@ -1,6 +1,4 @@
-const Home = { 
-  name : "home",
-  template: ` 
+const Home = { template: ` 
 <div class="jumbotron">
   <h1 class="display-4">Sending Email!</h1>
   <p class="lead">This is a simple email tool, help you manage customer information and sending customerlize email to them.</p>
@@ -10,23 +8,32 @@ const Home = {
 </div> 
 `};
 
+// ---below is for customer page----------------------------------------------
 
-// Vue.component('cat-list',{
-//   props: ['cats'],
-//   template: `
-//   <ul>
-//       <li v-for='cate in cats'> {{cate}}</li>
-//   </ul>
-//   `
-// })
-
-const customer = { template: `
-<div>
-<ul class="list-group" >
-  <li class="list-group-item" v-for="group in custgroups" v-bind="group.id">{{group.name}}</li>
-</ul>
+const customer = { 
+  // props: ['custgroups'],
+  template: `
+<div >
+  <ul class="list-group" >
+    <li class="list-group-item" v-for="group in custgroups"> {{ group.name }} </li>
+  </ul>
 </div>
-` };
+`,
+data: function () {
+  return {
+    custgroups : [
+      {name:"group-books-inside"},
+      {name:"group-clothes"},
+      {name:"group-electronics"}
+    ]
+  }
+},
+methods: {
+  select_group: function() {
+  }
+}
+
+};
 
 const Bar = { template: '<div>bar</div>' }
 
@@ -44,24 +51,17 @@ const router = new VueRouter({
 })
 
 const app = new Vue({
-  el:'#app',
   router,
-  data() {
-    return {
-    test : "he2",
-    custgroups =  [
-      {id:1,name:'mail-books'},
-      {id:2,name:'mail-shoes'},
-      {id:3,name:'mail-cars'}
-    ],
-    mssage : 'afdasfdas'
-  }
-  } ,
+  data: {
+    
+    message : "see my hello test",
+    
+  },
   methods: {
-    go_to_href: function (href) {
-      window.location.href = href
+    sample_method: function() {
     }
-  }
-})
+}
 
-// .$mount()
+}).$mount('#app')
+
+// 
