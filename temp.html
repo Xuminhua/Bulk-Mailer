@@ -1,0 +1,42 @@
+<div >
+    <h2> Please select customer group in this page </h2>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Groups</h3>
+                <ul class="list-group" >
+                    <li class="list-group-item" v-for="group in custgroups"> {{ group.name }} </li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <h3>Group details</h3>
+                <ul class="list-group" >
+                    <li class="list-group-item" v-for="cust in customers">{{ cust.id }} |{{ cust.email }}| {{ cust.name }}| </li>
+                </ul>   
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Email</th>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="cust in customers">
+            <td>{{ cust.id }}</td>
+            <td>{{ cust.email }}</td>
+            <td>{{ cust.name }}</td>
+          </tr>
+        </tbody>
+</table>
+
+
+<h4 class="list-group-item-heading">List group item heading</h4>
+
+<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
