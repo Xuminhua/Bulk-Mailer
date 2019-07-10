@@ -49,7 +49,11 @@ const app = new Vue({
   data() {
     return {
     test : "he2",
-    custgroups: []
+    custgroups =  [
+      {id:1,name:'mail-books'},
+      {id:2,name:'mail-shoes'},
+      {id:3,name:'mail-cars'}
+    ]
   }
   } ,
   methods: {
@@ -59,11 +63,7 @@ const app = new Vue({
   },
 
   mounted: function() {
-    custgroups =  [
-      {id:1,name:'mail-books'},
-      {id:2,name:'mail-shoes'},
-      {id:3,name:'mail-cars'}
-    ]
+
 
   }
 })

@@ -6,13 +6,13 @@ eel.init('web')                     # Give folder containing web files
 # def say_hello_py(x):
 #     print('Hello from %s' % x)
 
-# @eel.expose
-# def sum_test(x,y):
-#     return x + y
+@eel.expose
+def sum_test(x,y):
+    return x + y
 
 # say_hello_py('Python World!')
 
 
 # eel.say_hello_js('Python World!')   # Call a Javascript function
 
-eel.start('hello2.html')             # Start (this blocks and enters loop)
+eel.start('hello.html')             # Start (this blocks and enters loop)
