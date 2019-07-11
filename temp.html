@@ -40,3 +40,53 @@
 <h4 class="list-group-item-heading">List group item heading</h4>
 
 <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+
+
+
+<div class="list-group" >
+  <a href='#' class="list-group-item" v-for="group in custgroups" v-bind:key="group.id">
+    <h4 class="list-group-item-heading">{{ group.groupname }}</h4> <i class="icon-trash" @click="delgroup(group)"></i>
+    <p class="list-group-item-text">{{ group.groupdesc }}</p>
+  </a>
+</div>
+
+
+<ul class="rm-list-borders rm-list-borders-scroll list-group list-group-flush">
+  <li class="list-group-item"  v-for="group in custgroups" v-bind:key="group.id" >
+      <div class="widget-content p-0">
+          <div class="widget-content-wrapper">
+              <div class="widget-content-left text-left">
+                  <div class="widget-heading">{{ group.groupname }}</div>
+                  <div class="widget-subheading">{{ group.groupdesc }}</div>
+              </div>
+              <div class="widget-content-right text-right">
+                    <button type="button" class="btn btn-default btn-sm" @click="delgroup(group)">
+                      <span class="glyphicon glyphicon-trash" ></span> Del
+                    </button>
+              </div>
+          </div>
+      </div>
+  </li>
+</ul>
+
+
+<ul class="todo-list-wrapper list-group list-group-flush">
+  <li class="list-group-item"  v-for="group in custgroups" v-bind:key="group.id">
+      <div class="todo-indicator bg-primary"></div>
+      <div class="widget-content p-0">
+          <div class="widget-content-wrapper">
+
+              <div class="widget-content-left">
+                  <div class="widget-heading">{{ group.groupname }}</div>
+                  <div class="widget-subheading"><i>{{ group.groupdesc }}</i></div>
+              </div>
+              <div class="widget-content-right widget-content-actions">
+                  <button class="border-0 btn-transition btn btn-outline-danger" @click="delgroup(group)">
+                      <i class="fa fa-trash-alt"></i>
+                  </button>
+              </div>
+          </div>
+      </div>
+  </li>
+</ul>
+  
