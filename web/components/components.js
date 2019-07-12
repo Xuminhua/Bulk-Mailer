@@ -219,6 +219,10 @@ const MailItem = {
     <label for="exampleInputEmail1" >Mail Subject</label>
     <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Mail Subject" v-model='mailitem.subject'>
   </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1" >Mail Send on behalf</label>
+    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Mail Send on behalf" v-model='mailitem.on_behalf'>
+  </div>
 
   <div class="form-group">
     <label for="exampleInputFile">Add Attachment Path</label>
@@ -287,7 +291,11 @@ const Preview = { template: `
     <label for="exampleInputEmail1">Mail Subject</label>
     <p> {{preview_subject}}</p>
   </div>
-
+  
+  <div class="form-group ">
+  <label for="exampleInputEmail1">Mail Send on behalf</label>
+  <p> {{mailitem.on_behalf}}</p>
+</div>
 
   <div class="form-group">
   <label for="exampleInputEmail1">Mail Body Preview</label>
@@ -442,7 +450,8 @@ const store = new Vuex.Store({
         eel.send_mail(payload.email,
                             state.mailitem.subject.formatUnicorn(payload.corpname, payload.customername),
                             state.mailitem.html_body.formatUnicorn(payload.corpname, payload.customername),
-                            state.attachments)()
+                            state.attachments,
+                            state.mailitem.on_behalf)()
         .then((resp)=>{
           console.log(resp)
         })

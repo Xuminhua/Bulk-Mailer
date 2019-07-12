@@ -1,0 +1,1 @@
+"C:\Users\minhux\Workbooks\Adhoc\2019 Adhoc Tasks\mails\pyeel for mails\venv\Scripts\python" hello.py

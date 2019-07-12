@@ -131,7 +131,7 @@ def read_csv(file_path):
 
     
 @eel.expose
-def send_mail(receiver,subject,html_body,attachments):
+def send_mail(receiver,subject,html_body,attachments,on_behalf):
     outlook = win32.Dispatch('Outlook.Application')
     print(receiver)
     print(subject)
@@ -148,7 +148,8 @@ def send_mail(receiver,subject,html_body,attachments):
     mail_item.HTMLBody  = html_body
     for attachment in attachments:
         mail_item.Attachments.Add(attachment)
-    # mail_item.SentOnBehalfOfName = 'taihui.@amazon.com'
+    if len(on_behalf) > 0 :
+        mail_item.SentOnBehalfOfName = on_behalf
     # mail_item.Sender = 'taihui.@amazon.com'
     mail_item.Send()
     send_str = "send to %s" %receiver
