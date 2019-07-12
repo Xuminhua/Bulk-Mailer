@@ -217,13 +217,19 @@ const MailItem = {
   <form style="padding-top:20px">
   <div class="form-group">
     <label for="exampleInputEmail1" >Mail Subject</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Mail Subject" v-model='mailitem.subject'>
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Mail Subject" v-model='mailitem.subject'>
   </div>
 
   <div class="form-group">
     <label for="exampleInputFile">Add Attachment Path</label>
     <ul>  
-    <li v-for="attach in attachments">{{attach}}</li>
+    <li v-for="(attach,index) in attachments">{{attach}}
+ 
+    <button @click="delattachment(index)" style=""> 
+      <i class="glyphicon glyphicon-trash"></i>
+      </button>
+
+    </li>
     </ul>
     </div>
 
@@ -247,7 +253,8 @@ const MailItem = {
  
 methods: {
   ...Vuex.mapActions([
-    'addattachment'
+    'addattachment',
+    'delattachment'
   ])
 },
 
@@ -286,7 +293,7 @@ const Preview = { template: `
   <div v-html="mailitem.html_body">
   </div>
   </div>
-  <a class="btn btn-primary btn-md" href="#/preview" >Send All Mail To</a>
+  <button class="btn btn-primary btn-md" @click="send_all_email(customers)">Send All Mail To</button>
 </form>
 
 <div class="form-group">
@@ -308,6 +315,17 @@ data() {
         'mailitem',
         'customers'
     ])
+  },
+  methods: {
+    ...Vuex.mapActions([
+    'sendmail'
+    ]),
+    send_all_email(list) {
+      for(var i=0; i<list.length;i++) {
+        sendmail(list[i].email)
+      }
+    }
+
   }
 };
 
@@ -375,6 +393,12 @@ const store = new Vuex.Store({
         console.log(resp);
         })      
       },
+      delcustomers(state,payload) {
+        eel.delete_customers(payload.id)()
+        .then((resp)=>{
+        console.log(resp);
+        })      
+      },
       addcustomer(state) {
         eel.insert_customer(state.newcustomer.email,
                             state.newcustomer.corpname,
@@ -387,6 +411,18 @@ const store = new Vuex.Store({
       addattachment(state,payload) {
         state.attachments.push(payload)
         state.mailitem.newAttachment=""
+      },
+      delattachment(state,payload) {
+        state.attachments.splice(payload,1)
+      },
+      sendmail(state,payload) {
+        eel.send_mail(payload,
+                            state.mailitem.subject,
+                            state.mailitem.html_body,
+                            state.attachments)()
+        .then((resp)=>{
+          console.log(resp)
+        })
       }
   },
   // Action 提交的是 mutation，而不是直接变更状态。 通过 store.dispatch('increment',{amount:10})方法出发
@@ -403,8 +439,10 @@ const store = new Vuex.Store({
       context.commit('init_custgroups')
     },
     delgroup (context,param) {
+      context.commit('delcustomers',param);
       context.commit('delgroup',param);
-      context.commit('init_custgroups')
+      context.commit('init_custgroups');
+  
     },
     init_customers (context,param) {
       context.commit('init_customers',param)
@@ -419,6 +457,12 @@ const store = new Vuex.Store({
     },
     addattachment (context,param) {
       context.commit('addattachment',param);
+    },
+    delattachment(context,param) {
+      context.commit('delattachment',param)
+    },
+    sendmail(context,param) {
+      context.commit('sendmail',param)
     }
   } 
 });

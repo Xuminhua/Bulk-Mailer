@@ -5,7 +5,7 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy import Column, Integer, String, Float, Date
 from sqlalchemy.orm import Session
 import pandas as pd
-# import pandas as pd
+import win32com.client as win32
 
 engine = create_engine('sqlite:///test_db.db')
 Base = automap_base()
@@ -91,9 +91,10 @@ def get_customers(group_id):
 def delete_customers(group_id):
     rlt = session.query(Customer).filter_by(group_id=group_id).all()
     # group = session.query(Group).filter_by(id=id).first()
-    session.delete_all(rlt)
+    for cust in rlt:
+        session.delete(cust)
     session.commit()
-    str = "删除s%" % len(rlt)
+    str = "删除%s" %len(rlt)
     return str
 
 
@@ -129,6 +130,27 @@ def read_csv(file_path):
         return e
 
     
+@eel.expose
+def send_mail(receiver,subject,html_body,attachments):
+    outlook = win32.Dispatch('Outlook.Application')
+
+    mail_item = outlook.CreateItem(0) # 0: olMailItem
+
+    # mail_item.Recipients.Add('minhux')
+
+    mail_item.To = receiver
+    mail_item.Subject = subject
+
+    mail_item.BodyFormat = 2          # 2: Html format
+    mail_item.HTMLBody  = html_body
+    for attachment in attachments:
+        mail_item.Attachments.Add(attachment)
+    # mail_item.SentOnBehalfOfName = 'taihui.@amazon.com'
+    # mail_item.Sender = 'taihui.@amazon.com'
+    # mail_item.Send()
+    send_str = "send to %s" %receiver
+    return send_str
+
 
 eel.init('web')                     # Give folder containing web files
 
