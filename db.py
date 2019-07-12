@@ -17,21 +17,22 @@ class Group(Base):
     def __repr__(self):
        return "<Group(name='%s')>" % (self.groupname)
 
-# class Customer(Base):
-#     __tablename__ = 'customers'
-#     id = Column(Integer, primary_key=True)
-#     groupid = Column(Integer)
-#     email = Column(String)
-#     corpname = Column(String)
-#     customername = Column(String)
-#     group_id = Column(String, ForeignKey('groups.id'))
-#     def __repr__(self):
-#        return "<Group(email='%s')>" % (self.email)   
+class Customer(Base):
+    __tablename__ = 'customers'
+    customer_id = Column(Integer, primary_key=True)
+    email = Column(String)
+    corpname = Column(String)
+    customername = Column(String)
+    group_id = Column(Integer, ForeignKey('groups.id'))
+    def __repr__(self):
+       return "<Group(email='%s')>" % (self.email)   
 
 Base.metadata.create_all(bind=engine) # 建表
 session = Session(bind=engine)
 group = Group(groupname="king001", groupdesc="这是测试新建的第一个组")
 session.add(group)
+customer = Customer(email='abc@adf.com', corpname='ABC company', customername = "Mr wang", group_id=5)
+session.add(customer)
 
 session.commit()
 session.close()
