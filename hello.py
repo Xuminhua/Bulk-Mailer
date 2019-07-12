@@ -133,7 +133,10 @@ def read_csv(file_path):
 @eel.expose
 def send_mail(receiver,subject,html_body,attachments):
     outlook = win32.Dispatch('Outlook.Application')
-
+    print(receiver)
+    print(subject)
+    print(html_body)
+    print(attachments)
     mail_item = outlook.CreateItem(0) # 0: olMailItem
 
     # mail_item.Recipients.Add('minhux')
@@ -147,7 +150,7 @@ def send_mail(receiver,subject,html_body,attachments):
         mail_item.Attachments.Add(attachment)
     # mail_item.SentOnBehalfOfName = 'taihui.@amazon.com'
     # mail_item.Sender = 'taihui.@amazon.com'
-    # mail_item.Send()
+    mail_item.Send()
     send_str = "send to %s" %receiver
     return send_str
 

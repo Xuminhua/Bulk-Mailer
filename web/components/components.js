@@ -1,7 +1,7 @@
 const Home = { template: ` 
 <div class="jumbotron">
   <h1 class="display-4">Sending Email!</h1>
-  <p class="lead">This is a simple email tool, help you manage customer information and sending customerlize email to them.</p>
+  <p class="lead">This is a simple email tool, help you manage customer information and sending customerlized email to them.</p>
   <hr class="my-4">
   <p>Any question, feel free to contact minhux@amazon.com please</p>
   <a class="btn btn-primary btn-lg" href="#/customer" role="button">Start</a>
@@ -244,6 +244,7 @@ const MailItem = {
 
   <div class="form-group">
     <label for="body">Mail Content</label>
+    <p>Please use {0} for company name and {1} for customer name in the mail</p>
     <textarea class="form-control" rows="10" v-model='mailitem.html_body'></textarea>
   </div>
   <a class="btn btn-primary btn-md" href="#/preview" >Next</a>
@@ -273,31 +274,31 @@ const Preview = { template: `
 <div style="padding-left:20px;padding-right:20px">
   <nav aria-label="...">
     <ul class="pager">
-      <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Previous</a></li>
-      <li class="next"><a href="#">Next <span aria-hidden="true">&rarr;</span></a></li>
+      <li class="previous" @click="minus_one"><a href="#"><span aria-hidden="true">&larr;</span> Previous</a></li>
+      <li class="next" @click="add_one"><a href="#">Next <span aria-hidden="true">&rarr;</span></a></li>
     </ul>
   </nav>
 </div>
 <div style="padding-left:20px;padding-right:20px">
-  <H3>Mail Preview</H3>
+  <H3>Preview Mail To： {{ customers[current_cust_index].email }}     ----       No.{{current_cust_index+1}} of {{customers.length}}</H3> 
   <div style="border:1px solid #eee"></div>
   <form style="padding-top:20px">
   <div class="form-group ">
     <label for="exampleInputEmail1">Mail Subject</label>
-    <p> {{mailitem.subject}}</p>
+    <p> {{preview_subject}}</p>
   </div>
 
 
   <div class="form-group">
   <label for="exampleInputEmail1">Mail Body Preview</label>
-  <div v-html="mailitem.html_body">
+  <div v-html="preview_body">
   </div>
   </div>
-  <button class="btn btn-primary btn-md" @click="send_all_email(customers)">Send All Mail To</button>
+  <button class="btn btn-primary btn-md" @click="send_all_email(customers)">Confirm Sending Mail to {{customers.length}} {{customers.length>1?"customers":"customer"}}</button>
 </form>
 
 <div class="form-group">
-<p> 准备发送邮件{{customers.length}}个客户: </p> 
+<p style="padding-top:10px">Mail Lists:</p> 
 <span v-for="cust in customers"> {{cust.email}} |  </span>
 </div>
 </div>
@@ -306,15 +307,24 @@ const Preview = { template: `
 `
 ,
 data() {
-  return{
-
+  return {
+    //  selectedIndex: null
+    current_cust_index : 0
   }
 },
   computed: {
     ...Vuex.mapState([
         'mailitem',
-        'customers'
-    ])
+        'customers',
+        'attachments'
+    ]),
+    preview_body() {
+      return this.mailitem.html_body.formatUnicorn(this.customers[this.current_cust_index].corpname,this.customers[this.current_cust_index].customername)
+    }
+    ,
+    preview_subject() {
+      return this.mailitem.subject.formatUnicorn(this.customers[this.current_cust_index].corpname,this.customers[this.current_cust_index].customername)
+    }
   },
   methods: {
     ...Vuex.mapActions([
@@ -322,11 +332,24 @@ data() {
     ]),
     send_all_email(list) {
       for(var i=0; i<list.length;i++) {
-        sendmail(list[i].email)
+        this.sendmail(list[i])
+      }
+    },
+    add_one() {
+      if (this.current_cust_index < this.customers.length) {
+        this.current_cust_index += 1
+      }
+    },
+    minus_one() {
+      if (this.current_cust_index > 0) {
+        this.current_cust_index -= 1
       }
     }
 
+
   }
+
+  
 };
 
 const routes = [
@@ -416,9 +439,9 @@ const store = new Vuex.Store({
         state.attachments.splice(payload,1)
       },
       sendmail(state,payload) {
-        eel.send_mail(payload,
-                            state.mailitem.subject,
-                            state.mailitem.html_body,
+        eel.send_mail(payload.email,
+                            state.mailitem.subject.formatUnicorn(payload.corpname, payload.customername),
+                            state.mailitem.html_body.formatUnicorn(payload.corpname, payload.customername),
                             state.attachments)()
         .then((resp)=>{
           console.log(resp)
@@ -466,6 +489,8 @@ const store = new Vuex.Store({
     }
   } 
 });
+
+
 
 const app = new Vue({
   router,
