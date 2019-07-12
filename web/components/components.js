@@ -13,10 +13,10 @@ const Home = { template: `
 const customer = { 
   // props: ['custgroups'],
   template: `
-  <div class="container-fluid">
+  <div class="container-fluid" style="padding:20px">
   <div class="row-fluid">
     <div class="col-sm-4">
-    <h5>Groups</h5>
+    <h3>Groups</h3>
       <div class="list-group  column-list" >
       <div>  
       <a href='#' v-for="group in custgroups"  class="list-group-item "  :key="group.id" 
@@ -49,7 +49,7 @@ const customer = {
       </div>
     </div>
     <div class="col-sm-8">
-    <h5> Group details</h5>
+    <h3> Group details</h3>
 
     <p  v-if="!selectedIndex"> please select a group in the left to show details</p>
     
