@@ -3,8 +3,7 @@ const Home = { template: `
   <h1 class="display-4">Sending Email!</h1>
   <p class="lead">This is a simple email tool, help you manage customer information and sending customerlized email to them.</p>
   <hr class="my-4">
-  <p>Any question, feel free to contact minhux@amazon.com please</p>
-  <a class="btn btn-primary btn-lg" href="#/customer" role="button">Start</a>
+  <p>Any question, feel free to contact <address>minhux@amazon.com</address> please</p>
 </div> 
 `};
 
@@ -109,12 +108,12 @@ const customer = {
 
     <div class="input-group" style="padding-top:10px;padding-left:20px;padding-right: 20px">
       <span class="input-group-addon" id="basic-addon3">Path for your uploading file</span>
-      <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" v-model="cust_file_path" placeholder='C:/Users/minhux/Downloads/Book2.csv'>
-    </div>
+      <input type="text" class="form-control" id="upload-cust" aria-describedby="basic-addon3" v-model="cust_file_path" placeholder=''>
+      
+      </div>
     <div style="padding-top:10px;padding-left:20px;padding-right: 20px">
+      <button class="btn btn-default" type="submit" @click="getFile('csv')">Get File Path...</button>
       <button @click="addcustomers(cust_file_path,selectedIndex)" type="submit" class="btn btn-default">Import Customer...</button>
-
-
     <div>
   </div>
 
@@ -181,6 +180,13 @@ addcustomers(filepath,selectedIndex) {
         this.init_customers({'group_id':selectedIndex});
       }) 
   })
+},
+
+getFile(type) {
+  eel.ask_file(type)()
+  .then((resp) => {
+    this.cust_file_path = resp
+})
 }
 
 },
@@ -239,28 +245,42 @@ const MailItem = {
 
   <form class="form-inline">
     <div class="form-group">
-      <label class="sr-only" >Attachment Path</label>
-      <input type="text" class="form-control"  placeholder="Attachment Path" v-model="mailitem.newAttachment">
+      <label class="sr-only" >Attachment Path:</label>
     </div>
-    <button @click="addattachment(mailitem.newAttachment)" type="submit" class="btn btn-default">Add Attachment</button>
+    <button class="btn btn-default" type="submit" @click="getFile('all')">Add Attachment...</button>
 </form>
 
 
-  <div class="form-group">
+  <div class="form-group" style="padding-top:20px">
     <label for="body">Mail Content</label>
-    <p>Please use {0} for company name and {1} for customer name in the mail</p>
+    <p>Please use {0} for dynamic company name and {1} for dynamic customer name</p>
     <textarea class="form-control" rows="10" v-model='mailitem.html_body'></textarea>
   </div>
   <a class="btn btn-primary btn-md" href="#/preview" >Next</a>
 </form>
 </div>
   `,
+  data() {
+    return {
+      //  selectedIndex: null
+      attach_file_path: ""
+      
+    }
+  },
  
 methods: {
   ...Vuex.mapActions([
     'addattachment',
     'delattachment'
-  ])
+  ]),
+
+  getFile(type) {
+    eel.ask_file(type) ()
+    .then((resp) => {
+      this.attach_file_path = resp;
+      this.addattachment(resp)
+  })
+  }
 },
 
   computed: {
@@ -506,10 +526,11 @@ const app = new Vue({
   store,
   strict: false,
   data: {   
-    message : "see my hello test",
+    active_nav_var : "home",
   },
   methods: {
-    sample_method: function() {
+    active_nav: function(act) {
+      this.active_nav_var = act
     }
 }
 

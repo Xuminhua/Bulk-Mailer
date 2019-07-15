@@ -18,11 +18,11 @@
     <body>
         
         <div id="app">           
-            <ul class="nav nav-tabs">
-                <li role="presentation"><a href="#/home">Home</a></li>
-                <li role="presentation"><a href="#/customer">Customers Selecting</a></li>
-                <li role="presentation"><a href="#/mailitem">Mail Setting</a></li>
-                <li role="presentation"><a href="#/preview">Preview and Sending</a></li>
+            <ul class="nav nav-tabs ">
+                <li role="presentation" @click="active_nav('home')" :class="active_nav_var=='home'?'active':''"><a href="#/home">Home</a></li>
+                <li role="presentation" @click="active_nav('customer')" :class="active_nav_var=='customer'?'active':''"><a href="#/customer">Customers Selecting</a></li>
+                <li role="presentation" @click="active_nav('mailitem')" :class="active_nav_var=='mailitem'?'active':''"><a href="#/mailitem">Mail Setting</a></li>
+                <li role="presentation" @click="active_nav('preview')" :class="active_nav_var=='preview'?'active':''"><a href="#/preview">Preview and Sending</a></li>
             </ul>
                 <router-view></router-view>
 
