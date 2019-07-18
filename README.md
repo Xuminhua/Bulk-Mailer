@@ -12,7 +12,7 @@ Disclaimer： This tool is opensource and free to use. Please test on a small gr
 
 ### Prerequisites
 - Google Chrome installed
-- Download the composed version via this link [download exe file via Baidu Cloud](https://pan.baidu.com/s/1XxpmxcbXk7ru4idzaHSjIQ) (Extracting Code: id8v)
+- Download the composed version via this link [download exe file via Baidu Cloud](https://pan.baidu.com/s/1XxpmxcbXk7ru4idzaHSjIQ) (Extracting Code: id8v) the file size is 152M. or [downlad exe file via Dropbox](https://www.dropbox.com/s/rjjky2dj0kvmhzh/mails-public.zip?dl=0)
 
 
 ### Simple Guide
