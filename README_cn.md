@@ -1,4 +1,7 @@
-# Bulk-Mailer outlook邮件群发 [go to EN page](README.md)
+# Bulk-Mailer outlook邮件群发 
+
+[go to EN page](README.md)
+
 本工具可以帮助你发送邮件给一组客户，邮件标题和正文可以显示对应客户的名称。前提需要你安装google chrome浏览器，登录过Outlook邮箱。
 
 编写过程中用到了 [Eel](https://github.com/ChrisKnott/Eel) 和 [PyInstaller](http://www.pyinstaller.org/), 界面主要利用了 [Vue](https://cn.vuejs.org/)
