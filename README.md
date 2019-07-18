@@ -8,7 +8,7 @@ This tool built using [Eel](https://github.com/ChrisKnott/Eel) and [PyInstaller]
 
 ### Prerequisites
 - Google Chrome installed
-- Download the composed version via this link [sending mails](https://pan.baidu.com/s/1XxpmxcbXk7ru4idzaHSjIQ) (Extracting Code: id8v)
+- Download the composed version via this link [sending mails download](https://pan.baidu.com/s/1XxpmxcbXk7ru4idzaHSjIQ) (Extracting Code: id8v)
 
 
 ### Simple Guide
