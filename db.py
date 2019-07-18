@@ -4,7 +4,7 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy import Column, Integer, String, Float, Date
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Session
-engine = create_engine('sqlite:///test_db.db')
+engine = create_engine('sqlite:///mails/test_db.db')
 
 Base = declarative_base()
 
