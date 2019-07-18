@@ -11,11 +11,11 @@ This tool built using [Eel](https://github.com/ChrisKnott/Eel) and [PyInstaller]
 
 ### Prerequisites
 - Google Chrome installed
-- Download the composed version via this link [sending mails download](https://pan.baidu.com/s/1XxpmxcbXk7ru4idzaHSjIQ) (Extracting Code: id8v)
+- Download the composed version via this link [download exe file via Baidu Cloud](https://pan.baidu.com/s/1XxpmxcbXk7ru4idzaHSjIQ) (Extracting Code: id8v)
 
 
 ### Simple Guide
-Several steps after run the exe file(the custome and group only need setup once, the infomation will be stored locally in mails/test_db.db file):
+Extract the zip file, run mails.exe.(the custome and group only need setup once, the infomation will be stored locally in mails/test_db.db file):
   
 - Step 1: add group
 

@@ -1,4 +1,4 @@
-# Bulk-Mailer outlook邮件群发 
+# 邮件群发 
 
 [go to EN page](README.md)
 
