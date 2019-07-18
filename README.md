@@ -3,11 +3,15 @@ A tool help you bulk sending mail to a group of people with their name and corp 
 Using [Eel](https://github.com/ChrisKnott/Eel)
 
 ## How to use
-- need Chrome installed
-- download the composed version via this link [sending mails](https://pan.baidu.com/s/1XxpmxcbXk7ru4idzaHSjIQ) (Extracting Code: id8v)
-- run the exe file
-  
 
+### Prerequisites
+- Google Chrome installed
+- Download the composed version via this link [sending mails](https://pan.baidu.com/s/1XxpmxcbXk7ru4idzaHSjIQ) (Extracting Code: id8v)
+
+
+### Simple Guide
+- Several steps after run the exe file(the custome and group only need setup once, the infomation will be stored locally in mails/test_db.db file):
+  
   - Step 1: add group
   key in a group name and group description and then click add button, a new group will show in the list
   ![add group](screeshots%20for%20readme/add%20group.PNG)
