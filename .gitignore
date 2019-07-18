@@ -1,5 +1,6 @@
-venv
 dist
+!dist/mails-public/*
+venv
 build
 .vscode
 __pycache__
