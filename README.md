@@ -18,12 +18,12 @@ Using [Eel](https://github.com/ChrisKnott/Eel)
  
   - setting the mail subject and Html-body
   you can edit the mail content in mail setting page. using HTML for the mail body and you can insert the  corp name or customer name using {0} or {1}
-   ![edit mail](https://github.com/Xuminhua/Bulk-Mailer/blob/master/screeshots%20for%20readme/added%20customers.PNG)
+   ![edit mail](screeshots%20for%20readme/added%20customers.PNG)
   
   - preview the email and sending
   then, in preview page will show you how the mail look like with the corp name and customer name
-   ![edit mail](https://github.com/Xuminhua/Bulk-Mailer/blob/master/screeshots%20for%20readme/preview.PNG)
+   ![edit mail](screeshots%20for%20readme/preview.PNG)
    
   - send the mails
   after confirm the mail content, you can click the button down below the preview page. It shows you how many mails you will send together with the recepients list. This will send via you outlook account.
-  ![edit mail](https://github.com/Xuminhua/Bulk-Mailer/blob/master/screeshots%20for%20readme/send.PNG)
+  ![edit mail](screeshots%20for%20readme/send.PNG)
