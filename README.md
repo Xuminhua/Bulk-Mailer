@@ -18,7 +18,7 @@ Using [Eel](https://github.com/ChrisKnott/Eel)
  
   - setting the mail subject and Html-body
   you can edit the mail content in mail setting page. using HTML for the mail body and you can insert the  corp name or customer name using {0} or {1}
-   ![edit mail](screeshots%20for%20readme/added%20customers.PNG)
+   ![edit mail](screeshots%20for%20readme/edit%20mail.PNG)
   
   - preview the email and sending
   then, in preview page will show you how the mail look like with the corp name and customer name
