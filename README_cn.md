@@ -23,25 +23,25 @@
 ![add group](screeshots%20for%20readme/add%20group.PNG)
 
 
-- 第二部: 在选择的组内添加客户名称
+- 第二步: 在选择的组内添加客户名称
 
 选择一个你创建好的组, 在右边用类似的方式，输入客户邮箱，客户公司名称，客户名称后点击添加客户. 也可批量上传. 利用这个csv文件(csv文件里需要包含着三列: email,corpname,customername).
 ![add customer](screeshots%20for%20readme/add%20customers%20in%20selected%20group.PNG) 
 
 
-- Step 3: 设置邮件主题和内容，可添加附件
+- 第三步: 设置邮件主题和内容，可添加附件
 
 在Mail Setting页面编辑邮件标题和内容. 内容是HTML格式的，公司名称(corp name)用{0} 表示, 客户名称(customer name) 用 {1}
 ![edit mail](screeshots%20for%20readme/edit%20mail.PNG)
 
 
-- Step 4:  预览邮件
+- 第四步:  预览邮件
 
 最后, 在Preview and Sending页面，你可以通过点击previous和next按钮来预览发送给各个客户的邮件
 ![edit mail](screeshots%20for%20readme/preview.PNG)
 
 
-- Step 5: 发送邮件
+- 第五步: 发送邮件
 
 确认信息无误后, 可以点击预览页面最下方的按钮来发送邮件. 按钮会提示你一共要发送多少封邮件和具体的收件人列表
 ![edit mail](screeshots%20for%20readme/send.PNG)
