@@ -9,11 +9,11 @@ Using [Eel](https://github.com/ChrisKnott/Eel)
   
   - Step 1: add group
   key in a group name and group description and then click add button, a new group will show in the list
-  ![add group](https://github.com/Xuminhua/Bulk-Mailer/blob/master/screeshots%20for%20readme/add%20group.PNG)
+  ![add group](screeshots%20for%20readme/add%20group.PNG)
  
   - add customer in selected group
   after select a group you created, can add a customer in similar way. You can also upload bunch of customers infomation via upload button in this page. using the csv template in this git repo(the csv file should contain the three column names: email,corpname,customername).
-  ![add customer](https://github.com/Xuminhua/Bulk-Mailer/blob/master/screeshots%20for%20readme/add%20customers%20in%20selected%20group.PNG) 
+  ![add customer](screeshots%20for%20readme/add%20customers%20in%20selected%20group.PNG) 
  
  
   - setting the mail subject and Html-body
