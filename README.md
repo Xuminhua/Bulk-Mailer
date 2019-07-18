@@ -6,6 +6,7 @@ A tool help you bulk sending mail to a group of people with their name and corp 
 
 This tool built using [Eel](https://github.com/ChrisKnott/Eel) and [PyInstaller](http://www.pyinstaller.org/), the front page is build via [Vue](https://cn.vuejs.org/)
 
+Disclaimer： This tool is opensource and free to use. Please test on a small group before using. Any question, feel free to contact me via me@xuminhua.com.
 
 ## How to use
 
