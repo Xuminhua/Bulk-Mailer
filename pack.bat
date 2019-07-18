@@ -1,1 +1,0 @@
-python -m eel mails.spec mails --upx-dir=upx-3.95-win64
