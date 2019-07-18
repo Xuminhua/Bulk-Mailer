@@ -12,7 +12,7 @@
 
 ### 前提
 - Google Chrome 已安装
-- 下载编译好的exe版本 [百度云盘下载](https://pan.baidu.com/s/1XxpmxcbXk7ru4idzaHSjIQ) (提取码: id8v) 或者： [Drop box 下载](https://www.dropbox.com/s/rjjky2dj0kvmhzh/mails-public.zip?dl=0)
+- 下载编译好的exe版本 [百度云盘下载](https://pan.baidu.com/s/1XxpmxcbXk7ru4idzaHSjIQ) (提取码: id8v) 或者： [Dropbox下载](https://www.dropbox.com/s/rjjky2dj0kvmhzh/mails-public.zip?dl=0)
 
 
 ### 操作指南
