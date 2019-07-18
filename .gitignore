@@ -1,4 +1,4 @@
-dist
+dist/*
 !dist/mails-public/*
 venv
 build
