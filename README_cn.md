@@ -11,7 +11,7 @@
 
 ### 前提
 - Google Chrome 已安装
-- 现在编译好的exe版本 [百度云盘下载](https://pan.baidu.com/s/1XxpmxcbXk7ru4idzaHSjIQ) (提取码: id8v)
+- 下载编译好的exe版本 [百度云盘下载](https://pan.baidu.com/s/1XxpmxcbXk7ru4idzaHSjIQ) (提取码: id8v)
 
 
 ### 操作指南
