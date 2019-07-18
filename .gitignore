@@ -1,6 +1,12 @@
 venv
 dist
 build
-.venv
 .vscode
-__pycache
+__pycache__
+start.bat
+pack.bat
+upx-3.95-win32
+upx-3.95-win64
+db.py 
+使用说明.txt
+init.bat
