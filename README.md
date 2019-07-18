@@ -1,6 +1,8 @@
 # Bulk-Mailer
 A tool help you bulk sending mail to a group of people with their name and corp name one by one on windows platform using Outlook.
-Using [Eel](https://github.com/ChrisKnott/Eel)
+
+This tool built using [Eel](https://github.com/ChrisKnott/Eel) and [PyInstaller](http://www.pyinstaller.org/), the front page is build via [Vue](https://cn.vuejs.org/)
+
 
 ## How to use
 
